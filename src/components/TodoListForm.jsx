@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
-import TodoListItems from './TodoListItems';
 
-class TodoListForm extends Component {
+class TodoListForm extends Component { // Cont/Pres Stateful
      constructor() {
           super()
 
           this.state = {
-               item: '',
-               items: []
+               itemInput: ''
           }
      }
 
@@ -20,27 +18,33 @@ class TodoListForm extends Component {
      handleOnSubmit = e => {
           e.preventDefault()
 
-          const { item, items } = this.state
+          // Extract handleAddItem function from TodoListContainer via props 
+          const { handleAddItem } = this.props
+          // Extract itemInput from TodoListForm state
+          const { itemInput } = this.state
+          
+          handleAddItem(itemInput)
+          
           this.setState({
-               item: '',
-               items: [...items, item]
+               itemInput: ''
           })
+
           e.target.reset()
      }
 
      render() {
           return (
                <>
-                    <form onSubmit={this.handleOnSubmit}>
+                    <form
+                         onChange={this.handleOnChange}
+                         onSubmit = { this.handleOnSubmit }>
                          <input
-                              onChange={this.handleOnChange}
                               type="text"
                               placeholder="Enter Todo Task"
-                              name="item"
+                              name="itemInput"
                          />
                          <button type="submit">Add</button>
                     </form>
-                    <TodoListItems items={this.state.items} />
                </>
           );
      }
