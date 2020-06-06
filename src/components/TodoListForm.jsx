@@ -37,7 +37,9 @@ class TodoListForm extends Component { // Cont/Pres Stateful
                <>
                     <form
                          onChange={this.handleOnChange}
-                         onSubmit = { this.handleOnSubmit }>
+                         onSubmit={this.handleOnSubmit}
+                         autoComplete="off"
+                    >
                          <input
                               type="text"
                               placeholder="Enter Todo Task"

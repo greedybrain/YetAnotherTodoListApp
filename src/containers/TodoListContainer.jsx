@@ -17,12 +17,17 @@ class TodoListContainer extends Component {
           })
      }
 
+     handleTaskComplete = (e) => {
+          e.target.style.textDecoration = "line-through"
+          e.target.innerHTML += '<button className="undo-btn">Undo</button>'
+     }
+
      render() {
           const { items } = this.state
           return (
                <>   
                     <TodoListForm handleAddItem={this.handleAddItem} />
-                    <TodoList items={ items } />
+                    <TodoList handleTaskComplete={this.handleTaskComplete} items={ items } />
                </>
           );
      }

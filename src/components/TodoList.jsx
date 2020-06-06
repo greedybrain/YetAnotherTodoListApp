@@ -1,8 +1,8 @@
 import React from 'react';
 
-const TodoList = ({ items }) => { 
+const TodoList = ({ items, handleTaskComplete }) => { 
      const genTodoListItems = items.map((item, index) => { // Presentational/Stateless Component
-          return <li  key={index}>{item}</li>
+          return <li onClick={handleTaskComplete} key={index}>{item}</li>
      })
      return ( 
           <ul>
