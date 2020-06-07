@@ -18,7 +18,7 @@ const TodoList = ({ items, handleDeleteItem }) => {
                               break;
                          case "Delete":
                               let deleteButton = e.target
-                              const itemText = deleteButton.parentElement.firstElementChild.textContent
+                              const itemText = deleteButton.parentElement.parentElement.parentElement.firstElementChild.textContent
                               handleDeleteItem(itemText)
                               break;
                          default:
@@ -27,15 +27,24 @@ const TodoList = ({ items, handleDeleteItem }) => {
                     break;
                default:
                     break;
+               case "I":
+                    let deleteButton = e.target
+                    const itemText = deleteButton.parentElement.parentElement.parentElement.firstElementChild.textContent
+                    handleDeleteItem(itemText)
+                    break;
           }
      }
 
      const genTodoListItems = items.map((item, index) => { // Presentational/Stateless Component
           return (
-                    <li key={index}>
+               <li key={index}>
+                    <div className="todo-text">
                          <span onClick={handleTodoListAction}>{item}</span>
-                         <button className="delete-btn" onClick={handleTodoListAction}>Delete</button>
-                    </li>
+                    </div>
+                    <div className="delete">
+                         <button className="delete-btn"><i onClick={handleTodoListAction} className="fas fa-trash-alt delete-btn"></i></button>
+                    </div>
+               </li>
           )
      })
 

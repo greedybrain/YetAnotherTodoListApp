@@ -18,7 +18,7 @@ class TodoListContainer extends Component {
 
      handleAddItem = (item) => {
           this.setState({
-               items: [...this.getItems(), item]
+               items: [item, ...this.getItems()]
           })
      }
 

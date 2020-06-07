@@ -60,18 +60,48 @@ body ul.todo-list {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  border: 1px solid red;
+  border: 1px solid #b8b8b8;
   margin: 80px auto 0 auto;
   border-radius: 5px;
 }
 
 body ul.todo-list h2 {
-  border-bottom: 1px solid #333;
   text-align: center;
   padding: 15px 0;
+  background-color: #00b100;
+  color: #fff;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
 }
 
-body button.delete-btn {
-  margin-left: 5px;
+body ul.todo-list li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 20px 20px;
+  font-size: 1.5rem;
+}
+
+body ul.todo-list li button.delete-btn {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  font-size: 1.2rem;
+  color: #494949;
+}
+
+body ul.todo-list li button.delete-btn i {
+  cursor: pointer;
+}
+
+body ul.todo-list li:not(:last-child) {
+  border-bottom: 1px solid #b8b8b8;
 }
 /*# sourceMappingURL=App.css.map */

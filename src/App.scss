@@ -58,18 +58,41 @@ body {
           height: 450px;
           display: flex;
           flex-direction: column;
-          border: 1px solid red;
+          border: 1px solid #b8b8b8;
           margin: 80px auto 0 auto;
           border-radius: 5px;
      
           h2 {
-               border-bottom: 1px solid #333;
                text-align: center;
                padding: 15px 0;
+               background-color: #00b100;
+               color: #fff;
+               position: sticky;
+               top: 0;
           }
-     }
-     
-     button.delete-btn {
-          margin-left: 5px;
+
+          li {
+               display: flex;
+               align-items: center;
+               justify-content: space-between;
+               padding: 20px 20px;
+               font-size: 1.5rem;
+
+               button.delete-btn {
+                    background-color: transparent;
+                    outline: none;
+                    border: none;
+                    font-size: 1.2rem;
+                    color: #494949;
+
+                    i {
+                         cursor: pointer;
+                    }
+               }
+          }
+
+          li:not(:last-child) {
+               border-bottom: 1px solid #b8b8b8;
+          }
      }
 }
