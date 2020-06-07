@@ -1,20 +1,29 @@
 import React from 'react';
-import DeleteButton from './DeleteButton';
 
+const TodoList = ({ items, handleDeleteItem }) => { 
 
-const TodoList = ({ items }) => { 
-
-     function handleTodoListActions(e) {
+     function handleTodoListAction(e) {
           switch (e.target.nodeName) {
-               case "LI":
+               case "SPAN":
                     let taskItemLi = e.target
                     taskItemLi.style.textDecoration = "line-through"
                     taskItemLi.innerHTML += "<button className='undo-btn'>Undo</button>"
                     break;
                case "BUTTON":
-                    let undoButton = e.target
-                    undoButton.parentElement.style.textDecoration = "none"  
-                    undoButton.remove()
+                    switch (e.target.textContent) {
+                         case "Undo":
+                                   let undoButton = e.target
+                                   undoButton.parentElement.style.textDecoration = "none"  
+                                   undoButton.remove()
+                              break;
+                         case "Delete":
+                              let deleteButton = e.target
+                              const itemText = deleteButton.parentElement.firstElementChild.textContent
+                              handleDeleteItem(itemText)
+                              break;
+                         default:
+                              break;
+                    }
                     break;
                default:
                     break;
@@ -23,15 +32,16 @@ const TodoList = ({ items }) => {
 
      const genTodoListItems = items.map((item, index) => { // Presentational/Stateless Component
           return (
-               <li onClick={handleTodoListActions} key={index}>
-                    {item}
-                    <DeleteButton />
-               </li>
+                    <li key={index}>
+                         <span onClick={handleTodoListAction}>{item}</span>
+                         <button className="delete-btn" onClick={handleTodoListAction}>Delete</button>
+                    </li>
           )
      })
 
      return ( 
-          <ul>
+          <ul className="todo-list">
+               <h2>My Todo List</h2>
                {genTodoListItems}
           </ul>
       );

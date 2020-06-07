@@ -1,7 +1,77 @@
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
 * {
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  font-family: 'Indie Flower', cursive;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+li {
+  list-style-type: none;
+}
+
+body form {
+  text-align: center;
+  padding: 20px 0;
+}
+
+body form div.input-btn-wrapper {
+  border: 1px solid #aaaaaa;
+  width: 300px;
+  margin: 0 auto;
+  border-radius: 3px;
+}
+
+body form div.input-btn-wrapper input {
+  border: 0;
+  outline: none;
+  height: 100%;
+  width: 80%;
+  font-size: 1rem;
+  text-align: center;
+}
+
+body form div.input-btn-wrapper button {
+  width: 20%;
+  height: 40px;
+  border: none;
+  background-color: #00b100e7;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  outline: none;
+  cursor: pointer;
+  color: #fff;
+  font-size: 1rem;
+}
+
+body ul.todo-list {
+  overflow-y: scroll;
+  width: 350px;
+  height: 450px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border: 1px solid red;
+  margin: 80px auto 0 auto;
+  border-radius: 5px;
+}
+
+body ul.todo-list h2 {
+  border-bottom: 1px solid #333;
+  text-align: center;
+  padding: 15px 0;
+}
+
+body button.delete-btn {
+  margin-left: 5px;
 }
 /*# sourceMappingURL=App.css.map */

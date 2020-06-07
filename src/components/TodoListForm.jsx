@@ -40,12 +40,14 @@ class TodoListForm extends Component { // Cont/Pres Stateful
                          onSubmit={this.handleOnSubmit}
                          autoComplete="off"
                     >
-                         <input
-                              type="text"
-                              placeholder="Enter Todo Task"
-                              name="itemInput"
-                         />
-                         <button type="submit">Add</button>
+                         <div className="input-btn-wrapper">
+                              <input
+                                   type="text"
+                                   placeholder="Enter Todo Task"
+                                   name="itemInput"
+                              />
+                              <button type="submit">Add</button>
+                         </div>
                     </form>
                </>
           );

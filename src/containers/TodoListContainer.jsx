@@ -11,18 +11,29 @@ class TodoListContainer extends Component {
           }
      }
 
+     getItems() {
+          const { items } = this.state
+          return items
+     }
+
      handleAddItem = (item) => {
           this.setState({
-               items: [...this.state.items, item]
+               items: [...this.getItems(), item]
+          })
+     }
+
+     handleDeleteItem = (todoItem) => {
+          const keptItems = this.getItems().filter(item => item !== todoItem)
+          this.setState({
+               items: keptItems
           })
      }
 
      render() {
-          const { items } = this.state
           return (
                <>   
                     <TodoListForm handleAddItem={this.handleAddItem} />
-                    <TodoList items={ items } />
+                    <TodoList handleDeleteItem={this.handleDeleteItem} items={ this.getItems() } />
                </>
           );
      }
